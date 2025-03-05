@@ -6,7 +6,7 @@
 /*   By: hsharame <hsharame@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/05 13:14:18 by hsharame          #+#    #+#             */
-/*   Updated: 2025/03/05 13:43:53 by hsharame         ###   ########.fr       */
+/*   Updated: 2025/03/05 13:52:59 by hsharame         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -88,7 +88,7 @@ int	main()
 		std::string name;
 		int	grade;
 		std::cout << "Enter a name of your bureaucrat : ";
-		std::cin >> name;
+		std::getline (std::cin, name);
 		std::cout << "Enter a grade of your bureaucrat : ";
 		std::cin >> grade;
 		try

@@ -1,9 +1,9 @@
-NAME = bureaucrat
+NAME = form
 CXX = c++
 RM = rm -f
-CXXFLAGS = -Wall -Wextra -Werror -std=c++98 -g
-SRCS = main.cpp Bureaucrat.cpp
-HEADERS = Bureaucrat.hpp
+CXXFLAGS = -Wall -Wextra -Werror -std=c++98
+SRCS = main.cpp Bureaucrat.cpp Form.cpp
+HEADERS = Bureaucrat.hpp Form.hpp
 OBJS = $(SRCS:.cpp=.o)
 
 all: $(NAME)

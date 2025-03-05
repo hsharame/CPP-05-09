@@ -6,99 +6,57 @@
 /*   By: hsharame <hsharame@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/05 13:14:18 by hsharame          #+#    #+#             */
-/*   Updated: 2025/03/05 13:43:53 by hsharame         ###   ########.fr       */
+/*   Updated: 2025/03/05 16:01:27 by hsharame         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Bureaucrat.hpp"
+#include "Form.hpp"
 
 int	main()
 {
 	{
 		try
 		{
-			Bureaucrat	Jane("Jane", 30);
-			std::cout << Jane << std::endl;
-			std::cout << "Try to creat Alice, bureaucrat grade 151..." << std::endl;
-			Bureaucrat	Alice("Alice", 151);
+			Bureaucrat	Alice("Alice", 67);
+			Bureaucrat	Bob("Bob", 3);
+			Bureaucrat	Jack("Jack", 1);
+			Form		C28("C28", 5, 2);
+			//Form		C27("C29", 0, 8);
+			//Bureaucrat	Jane("Jane", -7);
 			std::cout << Alice << std::endl;
-			Bureaucrat	Bob("Bob", 0); //never executed
+			std::cout << Bob << std::endl;
+			std::cout << Jack << std::endl;
+			std::cout << C28 << std::endl;
+			Bob.signForm(C28);
+			Alice.signForm(C28);
+			Jack.signForm(C28);
+			std::cout << C28 << std::endl;
+			//Form		C29("C29", 156, 8);
 		}
-		catch (std::exception &e)
+		catch(const std::exception& e)
 		{
-			std::cerr << "Exception: " << e.what() << std::endl;
+			std::cerr << "Exception: " << e.what() << std::endl;;
 		}
 	}
 	std::cout << std::string(50, '_') << std::endl << std::endl;;
 	{
 		try
 		{
-			Bureaucrat Louis("Louis", 1);
-			std::cout << Louis << std::endl;
-			Louis.decrementGrade();
-			std::cout << Louis << std::endl;
-			Louis.incrementGrade();
-			std::cout << Louis << std::endl;
-			Louis.incrementGrade();
-			std::cout << Louis << std::endl;
+			Bureaucrat	Mike("Mike", 4);
+			Form		CERFA451("CERFA451", 3, 1);
+			std::cout << Mike << std::endl;
+			std::cout << CERFA451 << std::endl;
+			Mike.signForm(CERFA451);
+			std::cout << CERFA451 << std::endl;
+			Mike.incrementGrade();
+			std::cout << Mike << std::endl;
+			Mike.signForm(CERFA451);
+			std::cout << CERFA451 << std::endl;
 		}
 		catch(const std::exception& e)
 		{
-			std::cerr << "Exception: " << e.what() << std::endl;
-		}
-	}
-	std::cout << std::string(50, '_') << std::endl << std::endl;;
-	{
-		try
-		{
-			Bureaucrat Marc("Marc", 149);
-			std::cout << Marc << std::endl;
-			Marc.decrementGrade();
-			std::cout << Marc << std::endl;
-			Marc.decrementGrade();
-			std::cout << Marc << std::endl;
-		}
-		catch(const std::exception& e)
-		{
-			std::cerr << "Exception: " << e.what() << std::endl;
-		}
-	}
-	std::cout << std::string(50, '_') << std::endl << std::endl;;
-	{
-		try
-		{
-			Bureaucrat Alex("Alex", 42);
-			std::cout << Alex << std::endl;
-			Alex.incrementGrade();
-			std::cout << Alex << std::endl;
-			Alex.incrementGrade();
-			std::cout << Alex<< std::endl;
-			Alex.decrementGrade();
-			std::cout << Alex<< std::endl;
-			Alex.decrementGrade();
-			std::cout << Alex<< std::endl;
-		}
-		catch(const std::exception& e)
-		{
-			std::cerr << "Exception: " << e.what() << std::endl;
-		}
-	}
-	std::cout << std::string(50, '_') << std::endl << std::endl;;
-	{
-		std::string name;
-		int	grade;
-		std::cout << "Enter a name of your bureaucrat : ";
-		std::cin >> name;
-		std::cout << "Enter a grade of your bureaucrat : ";
-		std::cin >> grade;
-		try
-		{
-			Bureaucrat your(name, grade);
-			std::cout << your << std::endl;
-		}
-		catch(const std::exception& e)
-		{
-			std::cerr << "Exception: " << e.what() << std::endl;
+			std::cerr << "Exception: " << e.what() << std::endl;;
 		}
 	}
 	return 0;

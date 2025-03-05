@@ -6,7 +6,7 @@
 /*   By: hsharame <hsharame@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/05 12:27:40 by hsharame          #+#    #+#             */
-/*   Updated: 2025/03/05 13:13:01 by hsharame         ###   ########.fr       */
+/*   Updated: 2025/03/05 15:50:01 by hsharame         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,6 +55,20 @@ void		Bureaucrat::decrementGrade()
 	if (this->_grade + 1 > 150)
 		throw GradeTooLowException();
 	this->_grade++;
+}
+
+void		Bureaucrat::signForm(Form& f)
+{
+	try
+	{
+		f.beSigned(*this);
+		std::cout << this->_name << " signed " << f.getName() << std::endl;
+	}
+	catch(const std::exception& e)
+	{
+		std::cerr << this->_name << " couldn't sign " << f.getName() <<
+		" because " << e.what() << std::endl;
+	}
 }
 
 const char*	Bureaucrat::GradeTooHighException::what() const throw()

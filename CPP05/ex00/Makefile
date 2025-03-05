@@ -1,7 +1,7 @@
 NAME = bureaucrat
 CXX = c++
 RM = rm -f
-CXXFLAGS = -Wall -Wextra -Werror -std=c++98 -g
+CXXFLAGS = -Wall -Wextra -Werror -std=c++98
 SRCS = main.cpp Bureaucrat.cpp
 HEADERS = Bureaucrat.hpp
 OBJS = $(SRCS:.cpp=.o)
