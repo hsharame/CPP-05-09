@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Form.cpp                                           :+:      :+:    :+:   */
+/*   AForm.cpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hsharame <hsharame@student.42.fr>          +#+  +:+       +#+        */
+/*   By: hanna <hanna@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/05 14:01:17 by hsharame          #+#    #+#             */
-/*   Updated: 2025/03/05 16:07:44 by hsharame         ###   ########.fr       */
+/*   Updated: 2025/03/06 11:32:11 by hanna            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,14 +52,28 @@ void		AForm::beSigned(Bureaucrat const& b)
 	this->_signed = true;
 }
 
+void		AForm::execute(Bureaucrat const & executor)
+{
+	if (executor.getGrade() > this->getGradeToSign())
+		throw GradeTooLowException();
+	if (!this->_signed)
+		throw FormNotSigned();
+	this->executeForm();
+}
+
 const char*	AForm::GradeTooHighException::what() const throw()
 {
-	return "AForm grade too high!";
+	return "Form grade too high!";
 }
 
 const char*	AForm::GradeTooLowException::what() const throw()
 {
-	return "AForm grade too low!";
+	return "Form grade too low!";
+}
+
+const char*	AForm::FormNotSigned::what() const throw()
+{
+	return "Form cannot be executed because it is not signed";
 }
 
 std::ostream&	operator<<(std::ostream &stream, AForm const& f)

@@ -1,9 +1,11 @@
-NAME = form
+NAME = divercity
 CXX = c++
 RM = rm -f
 CXXFLAGS = -Wall -Wextra -Werror -std=c++98
-SRCS = main.cpp Bureaucrat.cpp Form.cpp
-HEADERS = Bureaucrat.hpp Form.hpp
+SRCS = main.cpp Bureaucrat.cpp Form.cpp ShrubberyCreationForm.cpp \
+	RobotomyRequestForm.cpp PresidentialPardonForm.cpp
+HEADERS = Bureaucrat.hpp Form.hpp ShrubberyCreationForm.hpp \
+	RobotomyRequestForm.hpp PresidentialPardonForm.hpp
 OBJS = $(SRCS:.cpp=.o)
 
 all: $(NAME)

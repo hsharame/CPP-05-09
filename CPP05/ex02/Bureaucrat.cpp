@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Bureaucrat.cpp                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hsharame <hsharame@student.42.fr>          +#+  +:+       +#+        */
+/*   By: hanna <hanna@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/05 12:27:40 by hsharame          #+#    #+#             */
-/*   Updated: 2025/03/05 15:50:01 by hsharame         ###   ########.fr       */
+/*   Updated: 2025/03/06 11:32:26 by hanna            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,7 +57,7 @@ void		Bureaucrat::decrementGrade()
 	this->_grade++;
 }
 
-void		Bureaucrat::signForm(Form& f)
+void		Bureaucrat::signForm(AForm& f)
 {
 	try
 	{
@@ -69,6 +69,11 @@ void		Bureaucrat::signForm(Form& f)
 		std::cerr << this->_name << " couldn't sign " << f.getName() <<
 		" because " << e.what() << std::endl;
 	}
+}
+
+void		Bureaucrat::executeForm(AForm const & form)
+{
+	
 }
 
 const char*	Bureaucrat::GradeTooHighException::what() const throw()
