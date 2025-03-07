@@ -6,7 +6,7 @@
 /*   By: hsharame <hsharame@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/05 13:14:18 by hsharame          #+#    #+#             */
-/*   Updated: 2025/03/07 13:47:49 by hsharame         ###   ########.fr       */
+/*   Updated: 2025/03/07 16:15:24 by hsharame         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,15 +15,19 @@
 #include "RobotomyRequestForm.hpp"
 #include "PresidentialPardonForm.hpp"
 #include "ShrubberyCreationForm.hpp"
+#include "Intern.hpp"
 
 int	main()
 {
 	try
 	{
-		Bureaucrat Alice("Alice", 32);
-		ShrubberyCreationForm form("home");
-		Alice.signForm(form);
-		Alice.executeForm(form);
+		Bureaucrat Bob("Bob", 4);
+		Intern someRandomIntern;
+		AForm* rrf;
+		rrf = someRandomIntern.makeForm("robotomy request", "Bender");
+		Bob.signForm(*rrf);
+		Bob.executeForm(*rrf);
+		delete rrf;
 	}
 	catch(const std::exception& e)
 	{
@@ -32,10 +36,13 @@ int	main()
 	std::cout << std::string(50, '_') << std::endl << std::endl;
 	try
 	{
-		Bureaucrat Bob("Bob", 145);
-		ShrubberyCreationForm form("home");
-		Bob.signForm(form);
-		Bob.executeForm(form);
+		Bureaucrat Alice("Alice", 145);
+		Intern someRandomIntern;
+		AForm* rrf;
+		rrf = someRandomIntern.makeForm("robotomy request", "Bender");
+		Alice.signForm(*rrf);
+		Alice.executeForm(*rrf);
+		delete rrf;
 	}
 	catch(const std::exception& e)
 	{
@@ -44,13 +51,14 @@ int	main()
 	std::cout << std::string(50, '_') << std::endl << std::endl;
 	try
 	{
-		Bureaucrat Mike("Mike", 32);
-		Bureaucrat Leo("Leo", 76);
-		ShrubberyCreationForm form("home");
-		ShrubberyCreationForm form1("Arbre");
-		Mike.executeForm(form);
-		Mike.signForm(form1);
-		Leo.executeForm(form1);
+		Bureaucrat Paul("Paul", 100);
+		Intern someRandomIntern;
+		AForm* rrf;
+		rrf = someRandomIntern.makeForm("shrubbery creation", "arbre");
+		Paul.executeForm(*rrf);
+		Paul.signForm(*rrf);
+		Paul.executeForm(*rrf);
+		delete rrf;
 	}
 	catch(const std::exception& e)
 	{
@@ -59,18 +67,15 @@ int	main()
 	std::cout << std::string(50, '_') << std::endl << std::endl;
 	try
 	{
-		Bureaucrat Mike("Mike", 32);
-		Bureaucrat Bob("Bob", 145);
-		Bureaucrat Alice("Alice", 3);
-		RobotomyRequestForm form("home");
-		Mike.signForm(form);
-		Bob.signForm(form);
-		Alice.signForm(form);
-		Mike.executeForm(form);
-		Bob.executeForm(form);
-		Alice.executeForm(form);
-		Mike.executeForm(form);
-		Mike.executeForm(form);
+		Bureaucrat Paul("Paul", 100);
+		Bureaucrat Louis("Louis", 1);
+		Intern someRandomIntern;
+		AForm* rrf;
+		rrf = someRandomIntern.makeForm("president pardon", "Trump");
+		Paul.signForm(*rrf);
+		Louis.signForm(*rrf);
+		Louis.executeForm(*rrf);
+		delete rrf;
 	}
 	catch(const std::exception& e)
 	{
@@ -79,16 +84,13 @@ int	main()
 	std::cout << std::string(50, '_') << std::endl << std::endl;
 	try
 	{
-		Bureaucrat Mike("Mike", 25);
-		Bureaucrat Bob("Bob", 145);
-		Bureaucrat Alice("Alice", 3);
-		PresidentialPardonForm form("home");
-		Mike.signForm(form);
-		Bob.signForm(form);
-		Alice.signForm(form);
-		Mike.executeForm(form);
-		Bob.executeForm(form);
-		Alice.executeForm(form);
+		Bureaucrat Sarah("Sarah", 1);
+		Intern someRandomIntern;
+		AForm* rrf;
+		rrf = someRandomIntern.makeForm("CERFA", "form");
+		Sarah.signForm(*rrf);
+		Sarah.executeForm(*rrf);
+		delete rrf;
 	}
 	catch(const std::exception& e)
 	{

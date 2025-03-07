@@ -6,7 +6,7 @@
 /*   By: hsharame <hsharame@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/05 13:14:18 by hsharame          #+#    #+#             */
-/*   Updated: 2025/03/05 16:01:27 by hsharame         ###   ########.fr       */
+/*   Updated: 2025/03/07 12:40:41 by hsharame         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,10 +36,10 @@ int	main()
 		}
 		catch(const std::exception& e)
 		{
-			std::cerr << "Exception: " << e.what() << std::endl;;
+			std::cerr << "Exception: " << e.what() << std::endl;
 		}
 	}
-	std::cout << std::string(50, '_') << std::endl << std::endl;;
+	std::cout << std::string(50, '_') << std::endl << std::endl;
 	{
 		try
 		{
@@ -56,7 +56,7 @@ int	main()
 		}
 		catch(const std::exception& e)
 		{
-			std::cerr << "Exception: " << e.what() << std::endl;;
+			std::cerr << "Exception: " << e.what() << std::endl;
 		}
 	}
 	return 0;

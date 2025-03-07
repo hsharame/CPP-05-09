@@ -6,7 +6,7 @@
 /*   By: hsharame <hsharame@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/05 13:14:18 by hsharame          #+#    #+#             */
-/*   Updated: 2025/03/05 13:52:59 by hsharame         ###   ########.fr       */
+/*   Updated: 2025/03/07 12:40:53 by hsharame         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ int	main()
 			std::cerr << "Exception: " << e.what() << std::endl;
 		}
 	}
-	std::cout << std::string(50, '_') << std::endl << std::endl;;
+	std::cout << std::string(50, '_') << std::endl << std::endl;
 	{
 		try
 		{
@@ -47,7 +47,7 @@ int	main()
 			std::cerr << "Exception: " << e.what() << std::endl;
 		}
 	}
-	std::cout << std::string(50, '_') << std::endl << std::endl;;
+	std::cout << std::string(50, '_') << std::endl << std::endl;
 	{
 		try
 		{
@@ -63,7 +63,7 @@ int	main()
 			std::cerr << "Exception: " << e.what() << std::endl;
 		}
 	}
-	std::cout << std::string(50, '_') << std::endl << std::endl;;
+	std::cout << std::string(50, '_') << std::endl << std::endl;
 	{
 		try
 		{
@@ -83,7 +83,7 @@ int	main()
 			std::cerr << "Exception: " << e.what() << std::endl;
 		}
 	}
-	std::cout << std::string(50, '_') << std::endl << std::endl;;
+	std::cout << std::string(50, '_') << std::endl << std::endl;
 	{
 		std::string name;
 		int	grade;

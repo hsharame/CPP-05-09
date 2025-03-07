@@ -1,12 +1,12 @@
-NAME = divercity
+NAME = intern_job
 CXX = c++
 RM = rm -f
 SHRUBBERY = *_shrubbery
 CXXFLAGS = -Wall -Wextra -Werror -std=c++98
 SRCS = main.cpp Bureaucrat.cpp AForm.cpp ShrubberyCreationForm.cpp \
-	RobotomyRequestForm.cpp PresidentialPardonForm.cpp
+	RobotomyRequestForm.cpp PresidentialPardonForm.cpp Intern.cpp
 HEADERS = Bureaucrat.hpp AForm.hpp ShrubberyCreationForm.hpp \
-	RobotomyRequestForm.hpp PresidentialPardonForm.hpp
+	RobotomyRequestForm.hpp PresidentialPardonForm.hpp Intern.hpp
 OBJS = $(SRCS:.cpp=.o)
 
 all: $(NAME)

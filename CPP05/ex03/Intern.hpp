@@ -1,36 +1,39 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   RobotomyRequestForm.hpp                            :+:      :+:    :+:   */
+/*   Intern.hpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hsharame <hsharame@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/03/06 11:23:37 by hanna             #+#    #+#             */
-/*   Updated: 2025/03/07 12:53:38 by hsharame         ###   ########.fr       */
+/*   Created: 2025/03/07 13:51:30 by hsharame          #+#    #+#             */
+/*   Updated: 2025/03/07 16:16:41 by hsharame         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef ROBOTOMY_HPP
-#define ROBOTOMY_HPP
+#ifndef INTERN_HPP
+#define INTERN_HPP
 
 #include "AForm.hpp"
-#include <time.h>
-#include <stdlib.h>
-#include <unistd.h>
+#include "Bureaucrat.hpp"
+#include "RobotomyRequestForm.hpp"
+#include "PresidentialPardonForm.hpp"
+#include "ShrubberyCreationForm.hpp"
 
-class RobotomyRequestForm : public AForm
+class Intern
 {
-	private:
-		std::string _target;
-
 	public:
-		RobotomyRequestForm();
-		RobotomyRequestForm(std::string target);
-		~RobotomyRequestForm();
-		RobotomyRequestForm(RobotomyRequestForm const &src);
-		RobotomyRequestForm& operator=(RobotomyRequestForm const &rhs);
+	Intern();
+	~Intern();
+	Intern(Intern const &src);
+	Intern& operator=(Intern const &rhs);
 
-		void	executeForm() const;
+	AForm*	makeForm(std::string name, std::string target) const;
+
+	class FormDoesntExist : public std::exception
+	{
+		public:
+			const char *what() const throw();
+	};
 };
 
 #endif
