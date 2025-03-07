@@ -6,7 +6,7 @@
 /*   By: hsharame <hsharame@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/05 13:14:18 by hsharame          #+#    #+#             */
-/*   Updated: 2025/03/07 12:40:53 by hsharame         ###   ########.fr       */
+/*   Updated: 2025/03/07 16:23:11 by hsharame         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,7 @@ int	main()
 			Bureaucrat	Alice("Alice", 151);
 			std::cout << Alice << std::endl;
 			Bureaucrat	Bob("Bob", 0); //never executed
+			std::cout << Bob << std::endl;
 		}
 		catch (std::exception &e)
 		{

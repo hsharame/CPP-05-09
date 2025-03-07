@@ -6,7 +6,7 @@
 /*   By: hsharame <hsharame@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/05 13:14:18 by hsharame          #+#    #+#             */
-/*   Updated: 2025/03/07 16:15:24 by hsharame         ###   ########.fr       */
+/*   Updated: 2025/03/07 16:27:32 by hsharame         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,7 @@ int	main()
 		Intern someRandomIntern;
 		AForm* rrf;
 		rrf = someRandomIntern.makeForm("robotomy request", "Bender");
+		std::cout << *rrf << std::endl;
 		Bob.signForm(*rrf);
 		Bob.executeForm(*rrf);
 		delete rrf;
@@ -40,6 +41,7 @@ int	main()
 		Intern someRandomIntern;
 		AForm* rrf;
 		rrf = someRandomIntern.makeForm("robotomy request", "Bender");
+		std::cout << *rrf << std::endl;
 		Alice.signForm(*rrf);
 		Alice.executeForm(*rrf);
 		delete rrf;
@@ -55,6 +57,7 @@ int	main()
 		Intern someRandomIntern;
 		AForm* rrf;
 		rrf = someRandomIntern.makeForm("shrubbery creation", "arbre");
+		std::cout << *rrf << std::endl;
 		Paul.executeForm(*rrf);
 		Paul.signForm(*rrf);
 		Paul.executeForm(*rrf);
@@ -72,6 +75,7 @@ int	main()
 		Intern someRandomIntern;
 		AForm* rrf;
 		rrf = someRandomIntern.makeForm("president pardon", "Trump");
+		std::cout << *rrf << std::endl;
 		Paul.signForm(*rrf);
 		Louis.signForm(*rrf);
 		Louis.executeForm(*rrf);
@@ -88,6 +92,7 @@ int	main()
 		Intern someRandomIntern;
 		AForm* rrf;
 		rrf = someRandomIntern.makeForm("CERFA", "form");
+		std::cout << *rrf << std::endl;
 		Sarah.signForm(*rrf);
 		Sarah.executeForm(*rrf);
 		delete rrf;
