@@ -6,7 +6,7 @@
 /*   By: hsharame <hsharame@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/10 12:24:25 by hsharame          #+#    #+#             */
-/*   Updated: 2025/03/10 17:51:39 by hsharame         ###   ########.fr       */
+/*   Updated: 2025/03/12 13:10:37 by hsharame         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,8 @@
 #define SCALARCONVERTER_HPP
 
 #include <iostream>
+#include <cctype>
+#include <cstdlib>
 
 #define INT_MIN -2147483648
 #define INT_MAX 2147483647
