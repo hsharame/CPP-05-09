@@ -1,9 +1,9 @@
-NAME = convert
+NAME = real_type
 CXX = c++
 RM = rm -f
 CXXFLAGS = -Wall -Wextra -Werror -Wconversion -std=c++98
-SRCS = main.cpp ScalarConverter.cpp
-HEADERS = ScalarConverter.hpp
+SRCS = main.cpp Base.cpp Identify.cpp
+HEADERS = Base.hpp A.hpp B.hpp C.hpp Identify.hpp
 OBJS = $(SRCS:.cpp=.o)
 
 all: $(NAME)

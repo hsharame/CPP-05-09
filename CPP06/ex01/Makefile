@@ -1,9 +1,9 @@
-NAME = convert
+NAME = serializer
 CXX = c++
 RM = rm -f
 CXXFLAGS = -Wall -Wextra -Werror -Wconversion -std=c++98
-SRCS = main.cpp ScalarConverter.cpp
-HEADERS = ScalarConverter.hpp
+SRCS = main.cpp Serializer.cpp
+HEADERS = Data.hpp Serializer.hpp
 OBJS = $(SRCS:.cpp=.o)
 
 all: $(NAME)

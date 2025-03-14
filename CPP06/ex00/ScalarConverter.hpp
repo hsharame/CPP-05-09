@@ -6,7 +6,7 @@
 /*   By: hsharame <hsharame@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/10 12:24:25 by hsharame          #+#    #+#             */
-/*   Updated: 2025/03/13 11:37:33 by hsharame         ###   ########.fr       */
+/*   Updated: 2025/03/13 15:25:11 by hsharame         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@
 #include <iostream>
 #include <cctype>
 #include <cstdlib>
+#include <cmath>
 
 #define INT_MIN -2147483648
 #define INT_MAX 2147483647

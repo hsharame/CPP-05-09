@@ -6,7 +6,7 @@
 /*   By: hsharame <hsharame@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/10 12:24:22 by hsharame          #+#    #+#             */
-/*   Updated: 2025/03/13 13:31:05 by hsharame         ###   ########.fr       */
+/*   Updated: 2025/03/14 14:16:21 by hsharame         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,8 +45,8 @@ void ScalarConverter::CharHandler(char c)
 	else 
 		std::cout << "char: '" << c << "'" << std::endl;
 	std::cout << "int: " << static_cast<int>(c) << std::endl;
-	std::cout << "float: " << static_cast<float>(c) << "f" << std::endl;
-	std::cout << "double: " << static_cast<double>(c) << std::endl;
+	std::cout << "float: " << static_cast<float>(c) << ".0f" << std::endl;
+	std::cout << "double: " << static_cast<double>(c) << ".0" << std::endl;
 }
 
 void ScalarConverter::IntHandler(int n)
@@ -61,8 +61,8 @@ void ScalarConverter::IntHandler(int n)
 			std::cout << "char: '" << static_cast<char>(n) << "'" << std::endl;
 	}
 	std::cout << "int: " << n << std::endl;
-	std::cout << "float: " << static_cast<float>(n) << "f" << std::endl;
-	std::cout << "double: " << static_cast<double>(n) << std::endl;
+	std::cout << "float: " << static_cast<float>(n) << ".0f" << std::endl;
+	std::cout << "double: " << static_cast<double>(n) << ".0" << std::endl;
 }
 
 void ScalarConverter::FloatHandler(float f)
@@ -71,7 +71,7 @@ void ScalarConverter::FloatHandler(float f)
 	std::cout << "char: impossible" << std::endl;
 	else
 	{
-		if (!isprint(f))
+		if (!isprint(static_cast<int>(f)))
 			std::cout << "char: Non displayable" << std::endl;
 		else
 			std::cout << "char: '" << static_cast<char>(f) << "'" << std::endl;
@@ -80,8 +80,18 @@ void ScalarConverter::FloatHandler(float f)
 		std::cout << "int: impossible" << std::endl;
 	else
 		std::cout << "int: " << static_cast<int>(f) << std::endl;
-	std::cout << "float: " << f << std::endl;
-	std::cout << "double: " << static_cast<double>(f) << std::endl;
+	double fractpart, intpart;
+	fractpart = modf(f, &intpart);
+	if (fractpart == 0)
+	{
+		std::cout << "float: " << f << ".0f" << std::endl;
+		std::cout << "double: " << static_cast<double>(f) << ".0" << std::endl;
+	}
+	else
+	{
+		std::cout << "float: " << f << "f" << std::endl;
+		std::cout << "double: " << static_cast<double>(f) << std::endl;
+	}
 }
 
 void ScalarConverter::DoubleHandler(double d)
@@ -90,7 +100,7 @@ void ScalarConverter::DoubleHandler(double d)
 	std::cout << "char: impossible" << std::endl;
 	else
 	{
-		if (!isprint(d))
+		if (!isprint(static_cast<int>(d)))
 			std::cout << "char: Non displayable" << std::endl;
 		else
 			std::cout << "char: '" << static_cast<char>(d) << "'" << std::endl;
@@ -99,8 +109,18 @@ void ScalarConverter::DoubleHandler(double d)
 		std::cout << "int: impossible" << std::endl;
 	else
 		std::cout << "int: " << static_cast<int>(d) << std::endl;
-	std::cout << "float: " << static_cast<float>(d) << "f" << std::endl;
-	std::cout << "double: " << d << std::endl;
+	double fractpart, intpart;
+	fractpart = modf(d, &intpart);
+	if (fractpart == 0)
+	{
+		std::cout << "float: " << static_cast<float>(d) << ".0f" << std::endl;
+		std::cout << "double: " << d << ".0" << std::endl;
+	}
+	else
+	{
+		std::cout << "float: " << static_cast<float>(d) << "f" << std::endl;
+		std::cout << "double: " << d << std::endl;
+	}
 }
 
 void	ScalarConverter::convert(std::string value)
@@ -124,12 +144,14 @@ void	ScalarConverter::convert(std::string value)
 		result = strtol(value.c_str(), &end, 0);
 		if (*end == '\0' && (result >= INT_MIN && result <= INT_MAX))
 			type = INT;
-		else 
+		else
 		{
 			d_result = strtod(value.c_str(), &end);
-			if (*end == 'f' && *(end + 1) == '\0' && (d_result >= FLOAT_MIN && d_result <= FLOAT_MAX))
+			if ((*end == 'f' && *(end + 1) == '\0' && (d_result >= FLOAT_MIN && d_result <= FLOAT_MAX))
+				|| (value == "0.0f"))
 				type = FLOAT;
-			else if (*end == '\0' && (d_result >= DOUBLE_MIN && d_result <= DOUBLE_MAX))
+			else if ((*end == '\0' && (d_result >= DOUBLE_MIN && d_result <= DOUBLE_MAX))
+				|| value == "0.0")
 				type = DOUBLE;
 		}
 	}
@@ -142,10 +164,10 @@ void	ScalarConverter::convert(std::string value)
 			ScalarConverter::CharHandler(value[0]);
 			break;
 		case INT:
-			ScalarConverter::IntHandler(result);
+			ScalarConverter::IntHandler(static_cast<int>(result));
 			break;
 		case FLOAT:
-			ScalarConverter::FloatHandler(d_result);
+			ScalarConverter::FloatHandler(static_cast<float>(d_result));
 			break;
 		case DOUBLE:
 			ScalarConverter::DoubleHandler(d_result);
