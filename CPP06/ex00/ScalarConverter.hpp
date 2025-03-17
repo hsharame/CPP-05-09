@@ -6,7 +6,7 @@
 /*   By: hsharame <hsharame@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/10 12:24:25 by hsharame          #+#    #+#             */
-/*   Updated: 2025/03/13 15:25:11 by hsharame         ###   ########.fr       */
+/*   Updated: 2025/03/17 17:24:19 by hsharame         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,9 +20,7 @@
 
 #define INT_MIN -2147483648
 #define INT_MAX 2147483647
-#define FLOAT_MIN 1.17549e-38f
 #define FLOAT_MAX 3.40282e+38f
-#define DOUBLE_MIN 2.22507e-308
 #define DOUBLE_MAX 1.79769e+308
 
 class	ScalarConverter

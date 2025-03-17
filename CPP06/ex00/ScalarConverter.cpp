@@ -6,7 +6,7 @@
 /*   By: hsharame <hsharame@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/10 12:24:22 by hsharame          #+#    #+#             */
-/*   Updated: 2025/03/14 14:16:21 by hsharame         ###   ########.fr       */
+/*   Updated: 2025/03/17 17:24:39 by hsharame         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -147,10 +147,10 @@ void	ScalarConverter::convert(std::string value)
 		else
 		{
 			d_result = strtod(value.c_str(), &end);
-			if ((*end == 'f' && *(end + 1) == '\0' && (d_result >= FLOAT_MIN && d_result <= FLOAT_MAX))
+			if ((*end == 'f' && *(end + 1) == '\0' && (d_result >= -FLOAT_MAX && d_result <= FLOAT_MAX))
 				|| (value == "0.0f"))
 				type = FLOAT;
-			else if ((*end == '\0' && (d_result >= DOUBLE_MIN && d_result <= DOUBLE_MAX))
+			else if ((*end == '\0' && (d_result >= -DOUBLE_MAX && d_result <= DOUBLE_MAX))
 				|| value == "0.0")
 				type = DOUBLE;
 		}
