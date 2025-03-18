@@ -1,38 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   whatever.hpp                                       :+:      :+:    :+:   */
+/*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hsharame <hsharame@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/03/17 16:02:23 by hsharame          #+#    #+#             */
-/*   Updated: 2025/03/18 15:55:10 by hsharame         ###   ########.fr       */
+/*   Created: 2025/03/18 16:13:48 by hsharame          #+#    #+#             */
+/*   Updated: 2025/03/18 17:20:27 by hsharame         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef WHATEVER_HPP
-#define WHATEVER_HPP
+#include "iter.hpp"
 
-#include <iostream>
-
-template <typename T>
-void swap(T &a, T &b)
+int	main(void)
 {
-	T tmp = a;
-	a = b;
-	b = tmp;
+	int	array1[] = {1, 2};
+	for(int	i = 0; i < 2; i++)
+		array1[i] = i + 1;
+	iter(array1, 42, display<int>);
 }
-
-template <typename T>
-T const &max(T &a, T &b)
-{
-	return (a>b? a:b);
-}
-
-template <typename T>
-T const &min(T &a, T &b)
-{
-	return (a<b? a:b);
-}
-
-#endif

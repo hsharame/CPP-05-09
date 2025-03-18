@@ -1,38 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   whatever.hpp                                       :+:      :+:    :+:   */
+/*   iter.hpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hsharame <hsharame@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/03/17 16:02:23 by hsharame          #+#    #+#             */
-/*   Updated: 2025/03/18 15:55:10 by hsharame         ###   ########.fr       */
+/*   Created: 2025/03/18 16:25:05 by hsharame          #+#    #+#             */
+/*   Updated: 2025/03/18 17:20:13 by hsharame         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef WHATEVER_HPP
-#define WHATEVER_HPP
+#ifndef ITER_HPP
+#define ITER_HPP
 
 #include <iostream>
 
-template <typename T>
-void swap(T &a, T &b)
+template<typename T>
+void iter(T* array, unsigned int length, void (*func)(T&)) 
 {
-	T tmp = a;
-	a = b;
-	b = tmp;
+	unsigned int	real_size = 0;
+	while (array[real_size])
+		real_size++;
+	if (length > real_size)
+		length = real_size;
+	for (unsigned int i = 0; i < length; i++)
+		func(array[i]);
 }
 
-template <typename T>
-T const &max(T &a, T &b)
+template<typename U>
+void	display(U &element)
 {
-	return (a>b? a:b);
-}
-
-template <typename T>
-T const &min(T &a, T &b)
-{
-	return (a<b? a:b);
+	std::cout << element << std::endl;
 }
 
 #endif
