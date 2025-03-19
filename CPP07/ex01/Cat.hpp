@@ -1,37 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   iter.hpp                                           :+:      :+:    :+:   */
+/*   Cat.hpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hsharame <hsharame@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/03/18 16:25:05 by hsharame          #+#    #+#             */
-/*   Updated: 2025/03/19 12:27:58 by hsharame         ###   ########.fr       */
+/*   Created: 2025/03/19 12:29:04 by hsharame          #+#    #+#             */
+/*   Updated: 2025/03/19 12:38:05 by hsharame         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef ITER_HPP
-#define ITER_HPP
+#ifndef CAT_HPP
+#define CAT_HPP
 
-#include <iostream>
+#include "iostream"
 
-template<typename T>
-void iter(T* array, unsigned int length, void (*func)(T&)) 
+class Cat 
 {
-	for (unsigned int i = 0; i < length; i++)
-		func(array[i]);
-}
+	public:
+		Cat();
+		Cat(std::string name);
+		~Cat();
+		Cat(Cat const &src);
+		Cat& operator=(Cat const &rhs);
+		void makeSound() const;
+		std::string getName(void) const;
 
-template<typename U>
-void	display(U &element)
-{
-	std::cout << element << std::endl;
-}
+	private:
+		std::string _name;
+};
 
-template<typename U>
-void	display_espace(U &element)
-{
-	std::cout << element << " ";
-}
+std::ostream&	operator<<(std::ostream &stream, Cat const& value);
 
 #endif

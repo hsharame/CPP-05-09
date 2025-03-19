@@ -1,9 +1,9 @@
-NAME = iter
+NAME = array
 CXX = c++
 RM = rm -f
 CXXFLAGS = -Wall -Wextra -Werror -std=c++98
-SRCS = main.cpp Cat.cpp
-HEADERS = iter.hpp Cat.hpp
+SRCS = main.cpp 
+HEADERS = Array.hpp
 OBJS = $(SRCS:.cpp=.o)
 
 all: $(NAME)
