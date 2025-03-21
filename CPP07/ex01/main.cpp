@@ -6,7 +6,7 @@
 /*   By: hsharame <hsharame@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/18 16:13:48 by hsharame          #+#    #+#             */
-/*   Updated: 2025/03/19 12:46:18 by hsharame         ###   ########.fr       */
+/*   Updated: 2025/03/21 13:29:56 by hsharame         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,4 +47,10 @@ int	main(void)
 		unsigned int size_array = sizeof(array) / sizeof(array[0]);
 		iter(array, size_array, display);
 	}
+	std::cout << std::endl << std::string(50, '_') << std::endl << std::endl;
+	{
+		int tab[] = { 0, 1, 2, 3, 4 };
+		iter( tab, 5, display< const int> );
+	}
+  
 }
