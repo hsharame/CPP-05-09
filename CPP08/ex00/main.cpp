@@ -6,7 +6,7 @@
 /*   By: hsharame <hsharame@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/24 13:52:48 by hsharame          #+#    #+#             */
-/*   Updated: 2025/03/24 18:06:08 by hsharame         ###   ########.fr       */
+/*   Updated: 2025/03/26 12:08:58 by hsharame         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,11 @@ void	print(IntList &l)
 		++i;
 	}
 	std::cout << std::endl;
+}
+
+void displayInt(int i)
+{
+	std::cout << i << std::endl;
 }
 
 int		main()
@@ -58,8 +63,7 @@ int		main()
 	{
 		typedef std::vector<int> vec;
 		vec v(10);
-		for (unsigned int i = 0; i < v.size(); i++)
-			std::cout << v[i] << " ";
+		for_each(v.begin(), v.end(), displayInt);
 		std::cout << std::endl;
 		try
 		{
@@ -128,36 +132,5 @@ int		main()
 			std::cout << deq[i] << " ";
 		std::cout << std::endl;
 	}
-	std::cout << std::string(50, '_') << std::endl << std::endl;
-	{
-		std::stack<int> sta;
-		if (sta.empty())
-			std::cout << "Stack is empty" << std::endl;
-		sta.push(1);
-		sta.push(1);
-		sta.push(2);
-		sta.push(3);
-		sta.push(5);
-		sta.push(8);
-		sta.push(13);
-		for (unsigned int i = 0; i < sta.size(); i++)
-			std::cout << sta[i] << " ";
-		std::cout << std::endl;
-		sta.pop();
-		sta.pop();
-		for (unsigned int i = 0; i < sta.size(); i++)
-			std::cout << sta[i] << " ";
-		std::cout << std::endl;
-		/*try
-		{
-			std::stack<int>::iterator it = easyfind(sta, 234);
-			std::cout << *it << std::endl;
-			std::stack<int>::iterator it1 = easyfind(sta, 5);
-			std::cout << *it1 << std::endl;
-		}
-		catch(const std::exception& e)
-		{
-			std::cerr << "Exception: " << e.what() << std::endl;
-		}*/
-	}
+	return 0;
 }
