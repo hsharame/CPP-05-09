@@ -1,38 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   BitcoinExchange.hpp                                :+:      :+:    :+:   */
+/*   RPN.hpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hsharame <hsharame@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/03/28 13:19:10 by hsharame          #+#    #+#             */
-/*   Updated: 2025/03/31 13:09:23 by hsharame         ###   ########.fr       */
+/*   Created: 2025/03/31 13:48:41 by hsharame          #+#    #+#             */
+/*   Updated: 2025/03/31 18:02:00 by hsharame         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef BITCOINEXCHANGE_HPP
-#define BITCOINEXCHANGE_HPP
+#ifndef RPN_HPP
+#define RPN_HPP
 
 #include <iostream>
-#include <fstream>
-#include <algorithm>
-#include <map>
-#include <cstring>
-#include <cstddef>
+#include <stack>
 
-class BitcoinExchange
+class RPN
 {
 	public:
-		BitcoinExchange();
-		~BitcoinExchange();
-		BitcoinExchange(BitcoinExchange const &src);
-		BitcoinExchange& operator=(BitcoinExchange const &rhs);
+		RPN();
+		~RPN();
+		RPN(RPN const &src);
+		RPN& operator=(RPN const &rhs);
 
-		void	setBd(std::map<std::string,float> toSet);
-		std::map<std::string, float> getBd() const;
+		void	setInput(std::stack<int> toSet);
+		std::stack<int> getInput() const;
+		void	setStr(std::string toSet);
+		std::string getStr() const;
 
 	private:
-		std::map<std::string, float> _bd;
+		std::stack<int> _input;
+		std::string	_str;
 };
 
 #endif

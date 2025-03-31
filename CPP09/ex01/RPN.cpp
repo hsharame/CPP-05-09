@@ -1,38 +1,48 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   BitcoinExchange.cpp                                :+:      :+:    :+:   */
+/*   RPN.cpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hsharame <hsharame@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/03/28 13:19:12 by hsharame          #+#    #+#             */
-/*   Updated: 2025/03/31 13:58:20 by hsharame         ###   ########.fr       */
+/*   Created: 2025/03/31 13:48:39 by hsharame          #+#    #+#             */
+/*   Updated: 2025/03/31 18:02:56 by hsharame         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "BitcoinExchange.hpp"
+#include "RPN.hpp"
 
-BitcoinExchange::BitcoinExchange() {}
+RPN::RPN() {}
 
-BitcoinExchange::~BitcoinExchange() {}
+RPN::~RPN() {}
 
-BitcoinExchange::BitcoinExchange(BitcoinExchange const &src) 
+RPN::RPN(RPN const &src) 
 {
 	*this = src;
 }
 
-BitcoinExchange& BitcoinExchange::operator=(BitcoinExchange const &rhs){
+RPN& RPN::operator=(RPN const &rhs){
 	if (this != &rhs)
-		this->_bd = rhs._bd;
+		this->_input = rhs._input;
 	return *this;
 }
 
-void	BitcoinExchange::setBd(std::map<std::string,float> toSet)
+void	RPN::setInput(std::stack<int> toSet)
 {
-	this->_bd = toSet;
+	this->_input = toSet;
 }
 
-std::map<std::string, float> BitcoinExchange::getBd() const
+std::stack<int> RPN::getInput() const
 {
-	return this->_bd;
+	return this->_input;
+}
+
+void	RPN::setStr(std::string toSet) 
+{
+	this->_str = toSet;
+}
+
+std::string RPN::getStr() const
+{
+	return this->_str;
 }
