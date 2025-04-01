@@ -6,7 +6,7 @@
 /*   By: hsharame <hsharame@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/31 13:48:39 by hsharame          #+#    #+#             */
-/*   Updated: 2025/03/31 18:02:56 by hsharame         ###   ########.fr       */
+/*   Updated: 2025/04/01 14:02:51 by hsharame         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ void	RPN::setInput(std::stack<int> toSet)
 	this->_input = toSet;
 }
 
-std::stack<int> RPN::getInput() const
+std::stack<int>& RPN::getInput()
 {
 	return this->_input;
 }

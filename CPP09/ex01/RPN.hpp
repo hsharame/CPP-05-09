@@ -6,7 +6,7 @@
 /*   By: hsharame <hsharame@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/31 13:48:41 by hsharame          #+#    #+#             */
-/*   Updated: 2025/04/01 13:36:05 by hsharame         ###   ########.fr       */
+/*   Updated: 2025/04/01 17:21:30 by hsharame         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@
 #include <iostream>
 #include <stack>
 #include <cstdlib>
+#include <climits>
 
 class RPN
 {
@@ -26,7 +27,7 @@ class RPN
 		RPN& operator=(RPN const &rhs);
 
 		void	setInput(std::stack<int> toSet);
-		std::stack<int> getInput() const;
+		std::stack<int> &getInput();
 		void	setStr(std::string toSet);
 		std::string getStr() const;
 

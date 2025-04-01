@@ -6,7 +6,7 @@
 /*   By: hsharame <hsharame@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/31 13:48:35 by hsharame          #+#    #+#             */
-/*   Updated: 2025/04/01 13:51:58 by hsharame         ###   ########.fr       */
+/*   Updated: 2025/04/01 17:24:51 by hsharame         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,6 @@
 
 int	findOperator(int op1, int op2, char c)
 {
-	int res(0);
 	switch(c)
 	{
 		case '+':
@@ -23,15 +22,13 @@ int	findOperator(int op1, int op2, char c)
 			return op1 - op2;
 		case '*':
 			return op1 * op2;
-		case '/':
+		default:
 			if (op2 == 0)
 			{
 				std::cerr << "Error: : Divide by zero" << std::endl;
-				exit(1);
+				return INT_MIN;
 			}
 			return op1 / op2;
-		default:
-			return res;
 	}
 }
 
@@ -40,7 +37,7 @@ bool	isoperator(char c)
 	return (c == '+' || c == '-' || c == '/' || c == '*') ? true : false;
 }
 
-void	runCalculation(RPN *myRPN)
+bool	runCalculation(RPN *myRPN)
 {
 	std::string value;
 	std::string input = myRPN->getStr();
@@ -48,40 +45,35 @@ void	runCalculation(RPN *myRPN)
 	size_t end = input.find(" ");
 	while (end != std::string::npos)
 	{
-		std::cout << "boucle" << std::endl;
+		end = input.find(" ", start);
 		value = input.substr(start, end - start);
 		if (value.size() > 1)
 		{
-			std::cerr << "Error df" << std::endl;
-			return;
+			std::cerr << "Error" << std::endl;
+			return false;
 		}
-		std::cout << "value: " << value << std::endl;
 		if (isdigit(value[0]))
-			myRPN->getInput().push(static_cast<int>(value[0]));
-		else if (isoperator(value[0]) && myRPN->getInput().size() == 2)
+			myRPN->getInput().push(value[0] - '0');
+		else if (isoperator(value[0]) && myRPN->getInput().size() >= 2)
 		{
 			int operand1(0), operand2(0), res(0);
-			operand1 = myRPN->getInput().top();
-			std::cout << operand1 << std::endl;
-			myRPN->getInput().pop();
 			operand2 = myRPN->getInput().top();
-			std::cout << operand1 << std::endl;
+			myRPN->getInput().pop();
+			operand1 = myRPN->getInput().top();
 			myRPN->getInput().pop();
 			res = findOperator(operand1, operand2, value[0]);
+			if (res == INT_MIN)
+				return false;
 			myRPN->getInput().push(res);
 		}
-		else
+		else if (end != std::string::npos)
 		{
-			std::cout << value[0] << " " << myRPN->getInput().size() << std::endl;
-			std::cerr << "Error d" << std::endl;
-			return;
+			std::cerr << "Error" << std::endl;
+			return false;
 		}
-		int operand3;
-		operand3 = myRPN->getInput().top();
-		std::cout << operand3 << std::endl;
 		start += 2;
-		end = input.find(" ", start);
 	}
+	return true;
 }
 
 bool	parsInput(int argc, char *argv[], RPN *myRPN)
@@ -93,8 +85,9 @@ bool	parsInput(int argc, char *argv[], RPN *myRPN)
 	{
 		for(int i = 1; argv[i]; i++)
 		{
-			input.append(argv[i]);
-			input.append(" ");
+			input += (argv[i]);
+			if (argv[i + 1])
+				input += " ";
 		}
 	}
 	for (int i = 0; input[i]; i++)
@@ -114,6 +107,7 @@ int	main(int argc, char *argv[])
 	RPN myRPN;
 	if (!parsInput(argc, argv, &myRPN))
 		return ((std::cerr << "Error" << std::endl), 1);
-	runCalculation(&myRPN);
+	if (runCalculation(&myRPN))
+		std::cout << myRPN.getInput().top() << std::endl;
 	return 0;
 }
