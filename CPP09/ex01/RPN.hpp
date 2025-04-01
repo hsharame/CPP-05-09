@@ -6,7 +6,7 @@
 /*   By: hsharame <hsharame@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/31 13:48:41 by hsharame          #+#    #+#             */
-/*   Updated: 2025/03/31 18:02:00 by hsharame         ###   ########.fr       */
+/*   Updated: 2025/04/01 13:36:05 by hsharame         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 
 #include <iostream>
 #include <stack>
+#include <cstdlib>
 
 class RPN
 {
