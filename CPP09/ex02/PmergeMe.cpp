@@ -1,51 +1,51 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   RPN.cpp                                            :+:      :+:    :+:   */
+/*   PmergeMe.cpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hsharame <hsharame@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/03/31 13:48:39 by hsharame          #+#    #+#             */
-/*   Updated: 2025/04/02 17:57:50 by hsharame         ###   ########.fr       */
+/*   Created: 2025/04/02 16:49:22 by hsharame          #+#    #+#             */
+/*   Updated: 2025/04/02 18:08:37 by hsharame         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "RPN.hpp"
+#include "PmergeMe.hpp"
 
-RPN::RPN() {}
+PmergeMe::PmergeMe() {}
 
-RPN::~RPN() {}
+PmergeMe::~PmergeMe() {}
 
-RPN::RPN(RPN const &src) 
+PmergeMe::PmergeMe(PmergeMe const &src) 
 {
 	*this = src;
 }
 
-RPN& RPN::operator=(RPN const &rhs){
+PmergeMe& PmergeMe::operator=(PmergeMe const &rhs){
 	if (this != &rhs)
 	{
 		this->_input = rhs._input;
-		this->_str = rhs._str;
+		this->_sorted = rhs._sorted;
 	}
 	return *this;
 }
 
-void	RPN::setInput(std::stack<int> toSet)
+void	PmergeMe::setInput(std::vector<int> toSet)
 {
 	this->_input = toSet;
 }
 
-std::stack<int>& RPN::getInput()
+std::vector<int>& PmergeMe::getInput()
 {
 	return this->_input;
 }
 
-void	RPN::setStr(std::string toSet) 
+void	PmergeMe::setSorted(std::deque<int> toSet) 
 {
-	this->_str = toSet;
+	this->_sorted = toSet;
 }
 
-std::string RPN::getStr() const
+std::deque<int> PmergeMe::getSorted() const
 {
-	return this->_str;
+	return this->_sorted;
 }

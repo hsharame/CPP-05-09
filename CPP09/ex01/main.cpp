@@ -6,7 +6,7 @@
 /*   By: hsharame <hsharame@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/31 13:48:35 by hsharame          #+#    #+#             */
-/*   Updated: 2025/04/01 17:24:51 by hsharame         ###   ########.fr       */
+/*   Updated: 2025/04/02 18:05:21 by hsharame         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,39 +39,49 @@ bool	isoperator(char c)
 
 bool	runCalculation(RPN *myRPN)
 {
-	std::string value;
 	std::string input = myRPN->getStr();
-	size_t start = 0;
-	size_t end = input.find(" ");
-	while (end != std::string::npos)
+	for (int i = 0; input[i]; i++)
 	{
-		end = input.find(" ", start);
-		value = input.substr(start, end - start);
-		if (value.size() > 1)
+		if (isspace(input[i]))
+			continue ;
+		if (isdigit(input[i]))
 		{
-			std::cerr << "Error" << std::endl;
-			return false;
-		}
-		if (isdigit(value[0]))
-			myRPN->getInput().push(value[0] - '0');
-		else if (isoperator(value[0]) && myRPN->getInput().size() >= 2)
-		{
-			int operand1(0), operand2(0), res(0);
-			operand2 = myRPN->getInput().top();
-			myRPN->getInput().pop();
-			operand1 = myRPN->getInput().top();
-			myRPN->getInput().pop();
-			res = findOperator(operand1, operand2, value[0]);
-			if (res == INT_MIN)
+			if (!input[i+1] || (input[i+1] && !isdigit(input[i+1])))
+				myRPN->getInput().push(input[i] - '0');
+			else if (input[i+1] && isdigit(input[i+1]))
+			{
+				std::cerr << "Error" << std::endl;
 				return false;
-			myRPN->getInput().push(res);
+			}
 		}
-		else if (end != std::string::npos)
+		if (isoperator(input[i]))
 		{
-			std::cerr << "Error" << std::endl;
-			return false;
+			if (input[i+1] && isdigit(input[i+1]) && 
+				(input[i+2] && !isdigit(input[i+2])))
+			{
+				if (input[i] == '-')
+					myRPN->getInput().push((input[++i] - '0') * -1);
+				else if (input[i] == '+')
+					myRPN->getInput().push(input[++i] - '0');
+				else
+				{
+					std::cerr << "Error" << std::endl;
+					return false;
+				}
+			}
+			else if (myRPN->getInput().size() >= 2)
+			{
+				int operand1(0), operand2(0), res(0);
+				operand2 = myRPN->getInput().top();
+				myRPN->getInput().pop();
+				operand1 = myRPN->getInput().top();
+				myRPN->getInput().pop();
+				res = findOperator(operand1, operand2, input[i]);
+				if (res == INT_MIN)
+					return false;
+				myRPN->getInput().push(res);
+			}
 		}
-		start += 2;
 	}
 	return true;
 }
@@ -92,7 +102,7 @@ bool	parsInput(int argc, char *argv[], RPN *myRPN)
 	}
 	for (int i = 0; input[i]; i++)
 	{
-		if (!isdigit(input[i]) && input[i] != ' ' &&
+		if (!isdigit(input[i]) && !isspace(input[i]) &&
 			(input[i] != '+' && input[i] != '-' && input[i] != '*' && input[i] != '/'))
 			return false;
 	}
