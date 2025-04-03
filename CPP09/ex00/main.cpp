@@ -6,7 +6,7 @@
 /*   By: hsharame <hsharame@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/28 13:19:07 by hsharame          #+#    #+#             */
-/*   Updated: 2025/03/31 13:46:05 by hsharame         ###   ########.fr       */
+/*   Updated: 2025/04/03 11:06:13 by hsharame         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -107,7 +107,7 @@ void	runExchange(std::string filename, std::map<std::string, float> const &bd)
 			date = parsDate(line.substr(0, 10));
 			if (date.size() > 5 && date.find("Error") != std::string::npos)
 				std::cerr << date << std::endl;
-			else 
+			else
 				std::cerr << "Error: bad line format => " << line << std::endl;
 		}
 	}
