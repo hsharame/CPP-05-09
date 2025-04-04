@@ -6,7 +6,7 @@
 /*   By: hsharame <hsharame@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/02 16:49:26 by hsharame          #+#    #+#             */
-/*   Updated: 2025/04/03 15:50:15 by hsharame         ###   ########.fr       */
+/*   Updated: 2025/04/04 19:01:38 by hsharame         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,6 +72,7 @@ int	main(int argc, char *argv[])
 	for (std::vector<int>::iterator it = myPmerge.getInputV().begin(); it != myPmerge.getInputV().end(); it++)
 		std::cout << *it << " ";
 	myPmerge.sortVector(myPmerge.getInputV());
+	myPmerge.sortDeque(myPmerge.getInputD());
 	std::cout << std::endl << "After: ";
 	for (std::vector<int>::iterator it1 = myPmerge.getSortedV().begin(); it1 != myPmerge.getSortedV().end(); it1++)
 		std::cout << *it1 << " ";

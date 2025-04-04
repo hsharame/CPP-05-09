@@ -6,7 +6,7 @@
 /*   By: hsharame <hsharame@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/02 16:49:20 by hsharame          #+#    #+#             */
-/*   Updated: 2025/04/03 15:43:33 by hsharame         ###   ########.fr       */
+/*   Updated: 2025/04/04 18:43:50 by hsharame         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,8 +29,7 @@ class PmergeMe
 		PmergeMe& operator=(PmergeMe const &rhs);
 		
 		void	sortVector(std::vector<int>& v);
-		void	sortDeque();
-
+		void	sortDeque(std::deque<int> &d);
 		void	setInputV(std::vector<int> toSet);
 		std::vector<int>& getInputV();
 		void	setInputD(std::deque<int> toSet);
@@ -39,7 +38,7 @@ class PmergeMe
 		void	setSortedV(std::vector<int> toSet);
 		std::vector<int>& getSortedV();
 		void	setSortedD(std::deque<int> toSet);
-		std::deque<int> getSortedD() const;
+		std::deque<int>& getSortedD();
 		
 		void	setError(bool v);
 		bool	&getError();
